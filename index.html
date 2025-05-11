@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" type="image/png" href="https://lh3.googleusercontent.com/a/ACg8ocJqPjxS4RXRc9KNNctwMJWFCp4jXHEMFQaotccHw7OXTQEwgPDO=s288-c-no">
+  <title>GamerTube</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #0f0f0f, #1a1a2e);
+      color: #00ffea;
+      font-family: 'Orbitron', sans-serif;
+      background-image: url(https://i.ytimg.com/vi/t1lY-zCt3VA/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCBOk262U_vuRXO_fjpL9TldFjXew);
+    
+    }
+
+    h1 {
+      text-align: center;
+      padding: 20px;
+      color: #00fff7;
+      text-shadow: 0 0 10px #00fff7;
+    }
+
+    .container {
+      display: flex;
+      gap: 20px;
+      padding: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .playlist {
+      position: absolute;
+      left: 1%;
+      width: 300px;
+      background: #111;
+      border: 2px solid #00ffea;
+      border-radius: 10px;
+      padding: 10px;
+      box-shadow: 0 0 20px #00ffea33;
+      max-height: 500px;
+      overflow-y: auto;
+    }
+
+    .playlist h2 {
+      margin-top: 0;
+      color: #00ffea;
+      text-align: center;
+    }
+
+    .playlist ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .playlist li {
+      padding: 10px;
+      border-bottom: 1px solid #00ffea33;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .playlist li:hover {
+      background: #00ffea33;
+    }
+
+    iframe {
+      margin-left: 250px;
+      width: 100%;
+      max-width: 800px;
+      height: 450px;
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 0 20px #00ffea33;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>O Castigado: Episódios</h1>
+
+  <div class="container">
+    <div class="playlist">
+      <h2>Playlist</h2>
+      <ul>
+        <li onclick="playVideo('https://youtu.be/B3ozpTNNiPI')">Tp 1 - Episódio 1</li>
+        <li onclick="playVideo('https://youtu.be/j1HZSCDT6l0')">Tp 1 - Episódio 2</li>
+        <li onclick="playVideo('https://youtu.be/FrVvi-PV-VY')">Tp 1 - Episódio 3</li>
+        <li onclick="playVideo('https://youtu.be/-gShKelvW2w')">Tp 1 - Episódio 4</li>
+        <li onclick="playVideo('https://youtu.be/lvUUfbUDRKw')">Tp 1 - Episódio 5</li>
+        <li onclick="playVideo('https://youtu.be/PIwkUV9Q_Cc')">Tp 1 - Episódio 6</li>
+        <li onclick="playVideo('https://youtu.be/EgsSXKEt5Q0')">Tp 1 - Episódio 7</li>
+        <li onclick="playVideo('https://youtu.be/xxEaMgiqGRo')">Tp 1 - Episódio 8</li>
+        <li onclick="playVideo('https://youtu.be/mwKgmJp0Oro')">Tp 1 - Episódio 9</li>
+        <li onclick="playVideo('https://youtu.be/eltXRkLJrpw')">Tp 1 - Episódio 10</li>
+        <li onclick="playVideo('https://www.youtube.com/watch?v=VIDEO_ID_11')">Tp 1 - Episódio 11</li>
+        <li onclick="playVideo('https://www.youtube.com/watch?v=VIDEO_ID_12')">Tp 1 - Episódio 12</li>
+        <li onclick="playVideo('https://www.youtube.com/watch?v=VIDEO_ID_13')">Tp 1 - Episódio 13</li>
+        <li onclick="playVideo('https://www.youtube.com/watch?v=VIDEO_ID_14')">Tp 1 - Episódio 14</li>
+      </ul>
+    </div>
+
+    <iframe id="videoPlayer" src="https://youtu.be/B3ozpTNNiPI" allowfullscreen></iframe>
+  </div>
+
+  <script>
+    function playVideo(url) {
+      const videoId = extractYouTubeId(url);
+      if (videoId) {
+        document.getElementById("videoPlayer").src = `https://www.youtube.com/embed/${videoId}`;
+      }
+    }
+
+    function extractYouTubeId(url) {
+      const regex = /(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
+      const match = url.match(regex);
+      return match ? match[1] : null;
+    }
+  </script>
+
+</body>
+</html>
+
